@@ -9,11 +9,11 @@ let randomTime;
 let randomTimes = [];
 let slideImage;
 let slideStartTime = -1;
-let slideDuration = 3000; // Duration for the image to stay on the screen (in milliseconds)
-let slideX = -200; // Initial X position of the sliding image
-let slideSpeed = 5; // Speed of the sliding image
-let slideImageWidth = 200; // Desired width of the sliding image
-let slideImageHeight; // Height of the sliding image (calculated to maintain aspect ratio)
+let slideDuration = 3000; 
+let slideX = -200; 
+let slideSpeed = 5; 
+let slideImageWidth = 200; 
+let slideImageHeight; 
 let timerValue = 0;
 let slidingIn = false;
 let slidingOut = false;
@@ -22,7 +22,7 @@ let startTime;
 const gameDuration = 30000; // 60 seconds in milliseconds
 let gameStarted = false;
 let startButton;
-let bgMusic; // Variable to store the audio
+let bgMusic; 
 
 
 
@@ -32,26 +32,25 @@ function preload() {
   sunshine = loadImage('assets/tangled_sun.png');
   slideImage = loadImage('assets/tangled_gothel.png');
   tangledLogo = loadImage('assets/tangled_logo.png');
-  bgMusic = loadSound('assets/145 I See The Light (Piano Version) - Tangled.mp3'); // Replace with your actual file name
-
+  bgMusic = loadSound('assets/145 I See The Light (Piano Version) - Tangled.mp3'); 
 }
 
 function setup() {
   
   let canvas = createCanvas(1325, 745);
   // canvas.position(0, 0);
-  // Create a div container for centering
+
   let container = createDiv();
   container.style('display', 'flex');
   container.style('justify-content', 'center');
   container.style('align-items', 'center');
-  container.style('height', '100vh'); // Full height of the viewport
-  container.style('width', '100vw');  // Full width of the viewport
+  container.style('height', '100vh'); 
+  container.style('width', '100vw');  
   container.style('position', 'absolute');
   container.style('top', '0');
   container.style('left', '0');
 
-  canvas.parent(container); // Attach canvas to this centered div
+  canvas.parent(container); 
 
  // Create start button
  startButton = createButton("Let's Play");
@@ -108,16 +107,15 @@ function draw() {
 
   if (!gameStarted) {
     background(29, 24, 92); 
-    // Draw logo at the top center
     push();
     imageMode(CENTER);
-    image(tangledLogo, width / 2, height / 3, tangledLogo.width / 3, tangledLogo.height / 3); // Adjust size if needed
+    image(tangledLogo, width / 2, height / 3, tangledLogo.width / 3, tangledLogo.height / 3); 
     pop();
     fill(255, 204, 0);
     textSize(24);
     textAlign(CENTER, CENTER);
     text('Welcome! Hover over the lanterns to help Rapunzel see as many lanterns as she can before time runs out. To earn bonus points hover over magic flowers. Look out for Mother Gothel!', width / 2 - 300, height / 2 - 50, 620, 200);
-    return; // Stop draw() from running the game before it starts
+    return; 
   }
 
   textAlign(LEFT, TOP); 
@@ -185,7 +183,6 @@ function draw() {
     refreshButton.style('font-family', "'Times New Roman', serif"); 
     refreshButton.style('font-weight', 'bold');
   
-    // Call repaint() when the button is pressed.
     refreshButton.mousePressed(() => window.location.reload());
   }
 }
@@ -343,7 +340,7 @@ function showGothel() {
     }
   }
 
-  // Position the slideImage at the bottom of the canvas
+
   image(slideImage, slideX, height - slideImageHeight, slideImageWidth, slideImageHeight);
 
 
